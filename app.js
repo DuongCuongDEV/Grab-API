@@ -36,6 +36,7 @@ const tinhRoutes = require("./routes/layTinh");
 const huyenRoutes = require("./routes/layHuyen");
 const xaRoutes = require("./routes/layXa");
 const thongTinNguoiDung = require("./routes/dangKy");
+const tripRoutes = require("./routes/trip");
 
 // Middlewares
 app.use(bodyParser.json());
@@ -46,6 +47,7 @@ app.use("/api", tinhRoutes);
 app.use("/api", huyenRoutes);
 app.use("/api", xaRoutes);
 app.use("/api", thongTinNguoiDung)
+app.use("/api", tripRoutes);
 
 
 // PORT
