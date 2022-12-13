@@ -7,6 +7,12 @@ const Trip = function (trip) {
     this.laitude_ket_thuc = trip.latitude_ket_thuc;
     this.ma_chuyen = trip.ma_chuyen;
     this.ma_nguoi_dat = trip.ma_nguoi_dat;
+    this.ma_tai_xe = trip.ma_tai_xe;
+    this.ma_trang_thai_chuyen_di = trip.ma_trang_thai_chuyen_di;
+    this.do_dai_quang_duong = trip.do_dai_quang_duong;
+    this.thanh_tien = trip.thanh_tien;
+    this.ma_giam_gia = trip.ma_giam_gia;
+    this.ghi_chu = trip.ghi_chu;
 };
 
 Trip.gettrips = function (result) {
@@ -29,8 +35,8 @@ Trip.displaytrip = function (machuyen, result) {
     });
 };
 
-Trip.update = function (id, trip, result) {
-  connection.query("UPDATE thong_tin_chuyen_xe SET ? WHERE ma_chuyen = ?", [trip, id], function (
+Trip.update = function (id, matrangthai, mataixe, result) {
+  connection.query("UPDATE thong_tin_chuyen_xe SET ma_trang_thai_chuyen_di = ?,ma_tai_xe = ? WHERE ma_chuyen = ?", [matrangthai,mataixe, id], function (
     err,
     res
   ) {
@@ -40,6 +46,6 @@ Trip.update = function (id, trip, result) {
       result(null, res);
     }
   });
-};
+}; 
 
 module.exports = Trip;
