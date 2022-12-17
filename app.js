@@ -38,6 +38,10 @@ const xaRoutes = require("./routes/layXa");
 const thongTinNguoiDung = require("./routes/dangKy");
 const dangnhap = require("./routes/dangnhap");
 const trangthai = require("./routes/trangthai");
+const thongTinTaiKhoanRoutes = require("./routes/thongTinTaiKhoan");
+const sendEmailRoutes = require("./routes/sendEmail");
+const changePasswordRoutes = require("./routes/changePassword");
+
 
 // Middlewares
 app.use(bodyParser.json());
@@ -51,6 +55,15 @@ app.use("/api", thongTinNguoiDung);
 app.use("/api", dangnhap);
 app.use("/api", trangthai);
 
+
+//API tạo thông tin tài khoản phần đăng nhập
+app.use("/thongTinTaiKhoan", thongTinTaiKhoanRoutes);
+
+//API quên mật khẩu 
+app.use("/sendEmail", sendEmailRoutes);
+
+//API đổi mật khẩu
+app.use("/changePassword", changePasswordRoutes);
 
 // PORT
 const port = process.env.PORT || 3000;
